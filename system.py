@@ -1,49 +1,54 @@
+from main import *
+from base_station import *
+
 # length between basic stations
-l = 5000                            #meters
+#l = 5000                            #meters
 
 # amount of users
-n = 20
+n = 1
 
 # length x between first station and user appearing
-x = 2000                            #meters
+#x = 2000                            #meters
 
 # users appearing in the system - distributed random variable exponential with intensity λ
-tau = 0                             #time
-# user speed in system - random variable with uniform distribution on the interval [5, 50]
-v = 0
-# Gaussian random variable with mean zero and standard deviation equal to 4dB
-s = 0                               #dB
-
-# case when the user can leave the system
-
-
-# user power report after t time in the system
-#power_bs1 = 0                       #dBm
-#power_bs2 = 0                       #dBm
-
-# power variable
-#alpha = 0
+#tau = 0                             #time
 
 # t time
 t = 20*10 ^ (-3)                      #time
-# Time to Trigger
-ttt = 0
 
 # case of breaking the radio link and removing the user from the system
-delta = 8                           #dB
-
+#delta = 8                           #dB
 
 class Network:
     # users queue
-    queue = []
+    #queue = []
     # users list
-    user_list = []
+    #user_list = []
 
-    def create_user(self, queue, user_list):
-        # warunek na sprawdzenie czy trzeba już dodac kolejnego usera
-        if time_user == clock
-            Simulator.create_user()
-            if self.user_list.count() > N
-                self.queue.append(user)
+    def __init__(self, clock, user):
+        self.user = user
+        self.appear_time = clock
+        self.delta = 8
+        self.user_list = []
+        self.queue = []
+        self.tau = Generator.rand_exp()
+
+    def create_user(self):
+        # condition whether you need to add another user
+        if (clock - self.appear_time) == self.tau:
+            #appear_time = clock
+            #create new user
+            #Simulator.create_user()
+            if self.user_list.count() > n:
+                self.queue.append(self.user)
             else
-                self.user_list.append(user)
+                self.user_list.append(self.user)
+
+    def user_power_report(self):
+
+
+    # case when the user can leave the system
+    def leave_system(self):
+        #if user is matching with first station
+        # if (P_b2 - P_b1) >= self.delta:
+            self.user.delete()
