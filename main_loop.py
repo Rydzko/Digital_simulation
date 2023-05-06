@@ -7,6 +7,7 @@ from sortedcontainers import SortedList
 class MainLoop:
 
     network: Network
+    generator: Generator
     event_list: SortedList
 
     def __init__(self) -> None:
