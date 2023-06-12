@@ -5,4 +5,5 @@ if __name__ == "__main__":
     print('Started Simulation')
     print('******************')
     main_loop = MainLoop()
-    main_loop.run(100)
+    # number of users served in entire system
+    main_loop.run(20)
